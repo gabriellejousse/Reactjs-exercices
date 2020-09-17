@@ -1,0 +1,21 @@
+.box {
+    height: 190px;
+    padding: 10px;
+    text-align : center;
+}
+
+/* sélectionne seulement les box dont la position est paire - attention aux espaces dans la syntaxe :nth...*/
+.box:nth-child(even) {
+    background-color: #CCC;
+}
+
+/* sélectionne seulement les box dont la position est impaire */
+.box:nth-child(odd){
+    background-color: #AAA;
+}
+
+.white {
+    background-color: #3A85FF;
+    color: white;
+}
+
