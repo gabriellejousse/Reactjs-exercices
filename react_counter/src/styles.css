@@ -1,0 +1,17 @@
+.center-counter {
+    text-align: center;
+}
+
+.button-plus {
+    background-color: green;
+    width: 90px;
+    font-size: 20px;
+    color: white;
+}
+
+.button-moins {
+    background-color: red;
+    width: 90px;
+    font-size: 20px;
+    color: white;
+}

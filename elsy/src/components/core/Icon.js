@@ -5,7 +5,7 @@ class Icon extends Component {
     render() {
 
         return (
-            <span className="material-icons" >
+            <span className="material-icons" style={{fontSize:"100px"}}>
                 <p>{this.props.name}</p>
                 
             </span>
