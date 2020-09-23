@@ -10,7 +10,7 @@ class Water extends Component {
                     <Icon name="local_drink"></Icon>
                 </span>
 
-                <p> {this.props.water} Water </p>
+                <p> {this.props.water} L </p>
             </div>
         )
     }
