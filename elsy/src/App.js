@@ -5,6 +5,8 @@ import Water from './components/Water';
 import Slider from './components/core/Slider';
 import Icon from './components/core/Icon';
 import Temperature from './components/Temperature';
+import '../src/css/bootstrap.min.css';
+import '../src/css/styles.css';
 
 const MIN_TEMPERATURE = -20;
 const MAX_TEMPERATURE = 40;
@@ -12,14 +14,14 @@ const MIN_HEART = 80;
 const MAX_HEART = 180;
 const MIN_STEPS = 0;
 const MAX_STEPS = 50000;
-const MIN_WATER = 1.5;
+
 
 class App extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      water: 0,
+      water: 1.5,
       heart: 120,
       temperature: -10,
       steps: 3000
@@ -31,36 +33,66 @@ class App extends React.Component {
   }
 
   onHeartChange(val) {
+    let newWater = this.calculateWater(this.state);
+
     this.setState({
-      heart: val
+      heart: val,
+      water: newWater
     })
   }
 
   onStepsChange(val) {
+    let newWater = this.calculateWater(this.state);
+
     this.setState({
-      steps: val
+      steps: val,
+      water: newWater
     })
   }
 
   onTemperatureChange(val) {
+    let newWater = this.calculateWater(this.state);
     this.setState({
-      temperature: val
+      temperature: val,
+      water: newWater
     })
   }
 
-  calculateWater(val){
-    this.setState({
-      water: val
-    })
+  calculateWater(obj) {
+    //obj.steps
+    //obj.heart
+    //obj.temperature
+    let liters = 1.5
+    let newWater = this.state.water
+    if (obj.temperature > 20) {
+      let upTemp = obj.temperature - 20
+      liters += upTemp * 0.02
+      //newWater = this.state.water + (0.02 * (this.state.temperature - 20))
+
+    } else if (obj.heart > 120) {
+      let upHeart = obj.heart - 120
+      liters += upHeart * 0.0008
+      //newWater = this.state.water + (0.0008 * (this.state.heart - 120))
+
+    } else if (obj.steps > 10000) {
+      let upSteps = obj.steps - 10000
+      liters += upSteps * 0.00002
+      //newWater = this.state.water + (0.00002 * (this.state.steps - 10000))
+    }
+    console.log(liters)
+    return liters
+    // ou return Math.round(liters * 100) /100 pour arrondir
+
   }
+
 
   render() {
 
     return (
+
       <div className="container-fluid">
-        <Water 
-        water={this.state.water}
-        min={MIN_WATER}>
+        <Water
+          water={this.calculateWater}>
         </Water>
 
         <Person
