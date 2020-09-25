@@ -62,12 +62,13 @@ class App extends React.Component {
     //obj.steps
     //obj.heart
     //obj.temperature
+    //on initialise le nb de litre au début:
     let liters = 1.5
     let newWater = this.state.water
     if (obj.temperature > 20) {
       let upTemp = obj.temperature - 20
+      // on ajoute a 'liters' le nb de l en + en fonction de la temp. au dessus de 20°C:
       liters += upTemp * 0.02
-      //newWater = this.state.water + (0.02 * (this.state.temperature - 20))
 
     } else if (obj.heart > 120) {
       let upHeart = obj.heart - 120
@@ -80,8 +81,8 @@ class App extends React.Component {
       //newWater = this.state.water + (0.00002 * (this.state.steps - 10000))
     }
     console.log(liters)
-    return liters
-    // ou return Math.round(liters * 100) /100 pour arrondir
+    // au lieu de "return liters", on ajoute Math.round pour arrondir le nb
+    return Math.round(liters * 100) /100
 
   }
 
@@ -92,7 +93,7 @@ class App extends React.Component {
 
       <div className="container-fluid">
         <Water
-          water={this.calculateWater}>
+          water={this.state.water}>
         </Water>
 
         <Person

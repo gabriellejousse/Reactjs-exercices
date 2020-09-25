@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from './core/Icon';
-import Slider from 'rc-slider';
+import Slider from './core/Slider';
 
 
 

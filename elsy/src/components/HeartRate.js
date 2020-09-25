@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from './core/Icon';
-import Slider from 'rc-slider';
+import Slider from './core/Slider';
+
 
 class HeartRate extends Component {
 
@@ -14,7 +15,7 @@ class HeartRate extends Component {
                     max={this.props.max}
                     min={this.props.min}
                     onChange={this.props.onChange}
-                    value={this.props.heart} >
+                    value={this.props.heart}>
                 </Slider>
 
                 <p>{this.props.heart} BPM </p>
