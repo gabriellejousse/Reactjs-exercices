@@ -46,10 +46,19 @@ class App extends React.Component {
     })
   }
 
+  addItem(currentInput, currentPrice){
+    let concat = currentInput + currentPrice
+
+    this.setState({
+      items: concat
+  })
+  }
+
   render() {
     return (
       <div>
 
+<h1 className="titleBakery"> Bakery </h1>
         <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
         <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
         <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
@@ -61,7 +70,7 @@ class App extends React.Component {
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-{this.state.activeTab === "add" ? <Add></Add> : this.state.activeTab === "list" ? <List></List> : <Pay></Pay>}
+{this.state.activeTab === "add" ? <Add callback={this.addItem}></Add> : this.state.activeTab === "list" ? <List></List> : <Pay></Pay>}
 
 
 
