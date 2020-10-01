@@ -18,17 +18,14 @@ class Add extends Component {
 
     updateInput(evt) {
         // le evt.target.value sert à obtenir ce qui s'écrit dans les input
-        evt.preventDefault();
+
         this.setState({
             input: evt.target.value
         })
         //
-        let currentInput= this.state.input
+        let currentInput = this.state.input
 
-        console.log("currentInput1", currentInput)
-
-
-        console.log("input evt", evt.target.value)
+        console.log(currentInput)
     }
 
 
@@ -38,34 +35,34 @@ class Add extends Component {
             price: val
         })
         //
-        let currentPrice= this.state.price
-        console.log("price  event", val)
+        //let currentPrice= this.state.price
+        console.log(val)
     }
 
 
-    submitForm(currentInput, currentPrice) {
-        let concat = currentInput + currentPrice
+    submitForm() {
 
-console.log("input dans submit: ", this.state.input)
+        let currentPrice = this.state.price
+        let currentInput = this.state.input
+        console.log("Variable currentPrice (add.js): ", currentPrice)
+        console.log("Variable currentInput (add.js): ", currentInput)
 
         this.setState({
-            items: this.state.input + this.state.price
+            items: currentPrice + currentInput
         })
-        
 
-        let priceInput = this.state.input + ' ' + this.state.price + '€'
-        console.log(priceInput)
+        // concaténation de l'input et de la variable:
+        let priceAndInput = currentInput + ' ' + currentPrice + '€'
+        console.log("price + input (add.js): ", priceAndInput)
 
-        let callback =this.props.callback
-
-       
-        //console.log('callback', callback)
+        // ça renvoie les paramètres vers le parent App.js: 
+        this.props.addItem(currentInput, currentPrice)
     }
 
 
     render() {
         return (
-            
+
             <div className="col-6 layout">
                 <input type="text" onChange={this.updateInput} className="form-control" placeholder="Item" aria-label="Recipient's username" aria-describedby="button-addon2" />
                 <div className="input-group-append">
@@ -75,10 +72,10 @@ console.log("input dans submit: ", this.state.input)
                     max={10}
                     min={1}
                     onChange={this.updatePrice}
-                    >
+                >
                 </RCSlider>
                 {this.state.price + "€"}
-                
+
             </div>
 
 

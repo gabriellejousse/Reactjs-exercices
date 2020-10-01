@@ -16,6 +16,7 @@ class App extends React.Component {
     this.onClickTabAdd = this.onClickTabAdd.bind(this);
     this.onClickTabList = this.onClickTabList.bind(this);
     this.onClickTabPay = this.onClickTabPay.bind(this);
+    this.addItem = this.addItem.bind(this);
 
     this.state = {
       activeTab: "add",
@@ -46,31 +47,35 @@ class App extends React.Component {
     })
   }
 
-  addItem(currentInput, currentPrice){
-    let concat = currentInput + currentPrice
+  addItem(currentInput, currentPrice) {
+
+    let newItems = this.state.items
+    newItems.push({ name: currentInput, price: currentPrice })
 
     this.setState({
-      items: concat
-  })
+      items: newItems
+    })
+    console.log("price + input (APP.js): ", currentInput, currentPrice + "€")
+    console.log("items: ", this.state.items)
   }
 
   render() {
     return (
       <div>
 
-<h1 className="titleBakery"> Bakery </h1>
+        <h1 className="titleBakery"> Bakery </h1>
         <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
         <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
         <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
 
 
-{/* // si la valeur de la tab active est "add", j'affiche le composant Add 
+        {/* // si la valeur de la tab active est "add", j'affiche le composant Add 
 // sinon, si la valeur de la tab active est "list", j'affiche le composant List
 // si aucune de ces conditions n'est respectée ; on affiche le composant pay
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-{this.state.activeTab === "add" ? <Add callback={this.addItem}></Add> : this.state.activeTab === "list" ? <List></List> : <Pay></Pay>}
+        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List listAddItem={this.newItems}></List> : <Pay></Pay>}
 
 
 
