@@ -61,9 +61,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div >
 
-        <h1 className="titleBakery"> Bakery </h1>
+        <h1 className="titleBakery d-flex justify-content-center"> Bakery </h1>
         <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
         <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
         <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
@@ -75,7 +75,7 @@ class App extends React.Component {
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List listAddItem={this.newItems}></List> : <Pay></Pay>}
+        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay></Pay>}
 
 
 
