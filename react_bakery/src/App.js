@@ -6,7 +6,8 @@ import Pay from './components/Pay';
 import Button from './components/core/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tabs from 'react-tabs';
-import RCSlider from 'rc-slider'
+import RCSlider from 'rc-slider';
+import Card from './components/product/Card';
 
 class App extends React.Component {
 
@@ -75,7 +76,7 @@ class App extends React.Component {
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay></Pay>}
+        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
 
 
 
