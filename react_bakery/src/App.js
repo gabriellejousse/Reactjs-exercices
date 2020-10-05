@@ -51,7 +51,7 @@ class App extends React.Component {
   addItem(currentInput, currentPrice) {
 
     let newItems = this.state.items
-    newItems.push({ name: currentInput, price: currentPrice })
+    newItems.push({ itemName: currentInput, price: currentPrice })
 
     this.setState({
       items: newItems
@@ -76,7 +76,8 @@ class App extends React.Component {
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
+        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? 
+        <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
 
 
 
