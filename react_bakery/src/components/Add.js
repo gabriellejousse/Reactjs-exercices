@@ -64,7 +64,7 @@ class Add extends Component {
         return (
 
             <div className="col-6 layout ">
-                <input type="text" onChange={this.updateInput} className="form-control" placeholder="Item" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                <input type="text" onChange={this.updateInput} className="form-control mb-4" placeholder="Item" aria-label="Recipient's username" aria-describedby="button-addon2" />
                 <div className="input-group-append">
                     <button onClick={() => this.submitForm()} className="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
                 </div>

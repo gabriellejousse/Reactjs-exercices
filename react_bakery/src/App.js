@@ -24,7 +24,6 @@ class App extends React.Component {
       items: []
     }
   }
-
   onClickTabAdd() {
     console.log("Click Add")
     this.setState({
@@ -60,15 +59,18 @@ class App extends React.Component {
     console.log("items: ", this.state.items)
   }
 
+
   render() {
     return (
-      <div >
+      <div className="jumbotron">
 
-        <h1 className="titleBakery d-flex justify-content-center"> Bakery </h1>
-        <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
-        <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
-        <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
+        <h1 className="titleBakery d-flex justify-content-center mb-4 "> Bakery </h1>
 
+        <nav className="justify-content-center">
+          <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
+          <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
+          <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
+        </nav>
 
         {/* // si la valeur de la tab active est "add", j'affiche le composant Add 
 // sinon, si la valeur de la tab active est "list", j'affiche le composant List
@@ -76,8 +78,7 @@ class App extends React.Component {
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
 
-        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? 
-        <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
+        {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
 
 
 
