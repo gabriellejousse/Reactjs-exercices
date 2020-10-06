@@ -62,24 +62,26 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="jumbotron">
+      <div>
 
-        <h1 className="titleBakery d-flex justify-content-center mb-4 "> Bakery </h1>
 
-        <nav className="justify-content-center">
-          <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
-          <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
-          <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
-        </nav>
+        <section>
+          <h1 className="titleBakery text-center"> Bakery Shop</h1>
+          <nav className="row justify-content-center">
+            <Button name="Add" isSelected={this.state.activeTab === "add"} onClick={this.onClickTabAdd}></Button>
+            <Button name="List" isSelected={this.state.activeTab === "list"} onClick={this.onClickTabList}></Button>
+            <Button name="Pay" isSelected={this.state.activeTab === "pay"} onClick={this.onClickTabPay}></Button>
+          </nav>
+        </section>
 
         {/* // si la valeur de la tab active est "add", j'affiche le composant Add 
 // sinon, si la valeur de la tab active est "list", j'affiche le composant List
 // si aucune de ces conditions n'est respectée ; on affiche le composant pay
 // (deux conditions ternaires imbriquées) 
 // pour éviter de faire des conditions trop compliquées, on peut utiliser la méthode de créer un nouveau sub render*/}
-
+<section className="row justify-content-center">
         {this.state.activeTab === "add" ? <Add addItem={this.addItem}></Add> : this.state.activeTab === "list" ? <List items={this.state.items}></List> : <Pay items={this.state.items}></Pay>}
-
+        </section>
 
 
 

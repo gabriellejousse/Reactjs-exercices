@@ -26,11 +26,55 @@
 
 .titleBakery{
   color: pink;
-  margin-left: 15px;
+  margin-top: 4em;
 }
 
-.sizecss {
-  width: 400px;
+.button-add{
+  
+  width:60px;
+	height:60px;
+	background:linear-gradient(45deg, #007bff, pink );
+	font:bold Arial 16px;
+	border-radius:50%;
+	border:none;
+  color:#fff;
+}
+
+.btn-nav-active{
+  width:60px;
+	height:40px;
+	background:linear-gradient(45deg, pink, #007bff);
+  font:bold Arial 15px;
+  border-radius:15%;
+	border:none;
+  color:#fff;
+}
+
+.btn-nav{
+    width:60px;
+	height:40px;
+	background: white;
+  font:bold Arial 16px;
+  border-radius:15%;
+  border-top-color:#007bff;
+  border-bottom-color:#007bff;
+  border-left-color:#007bff;
+  border-right-color:#007bff;
+  border-width:1px;
+  color:#007bff;
+}
+
+.badge-color{
+  background-color:pink;
+  color: white;
+}
+
+.colorblue{
+  color:#011260;
+}
+
+.colorpink {
+  color: pink;
 }
 
 @keyframes App-logo-spin {

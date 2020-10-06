@@ -63,18 +63,21 @@ class Add extends Component {
     render() {
         return (
 
-            <div className="col-6 layout ">
-                <input type="text" onChange={this.updateInput} className="form-control mb-4" placeholder="Item" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                <div className="input-group-append">
-                    <button onClick={() => this.submitForm()} className="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
-                </div>
+            <div className=" col-4">
+                <h4 className="text-center colorblue mt-2 mb-4"> What do you want today ?</h4>
+                <input type="text" onChange={this.updateInput} className="form-control mb-3" placeholder="Add your item here" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                
                 <RCSlider
                     max={10}
                     min={1}
                     onChange={this.updatePrice}
                 >
                 </RCSlider>
-                {this.state.price + "€"}
+                <h5 className="colorpink text-center mt-3"><strong>{this.state.price + "€"}</strong></h5>
+
+                <div className="row justify-content-center mt-4 btn-wrapper">
+                    <button onClick={() => this.submitForm()} className="button-add" type="button" id="button-addon2">Add</button>
+                </div>
 
             </div>
 

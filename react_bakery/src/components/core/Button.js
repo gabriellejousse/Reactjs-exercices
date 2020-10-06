@@ -7,9 +7,9 @@ class Button extends Component {
 
     render() {
         return (
-            <div className="container">
-                <nav className="justify-content-center row">
-                    <button className={this.props.isSelected ? 'btn btn-outline-primary active mx-2 mb-4 btn-sm' : 'btn btn-sm btn-outline-primary mx-2 mb-4'}
+            <div className="">
+                <nav className="">
+                    <button className={this.props.isSelected ? 'btn-nav-active my-3 mx-2' : 'btn-nav my-3 mx-2'}
                         children="" isselected="" onClick={this.props.onClick} type="button"
                     >{this.props.name}</button>
                 </nav>
