@@ -66,59 +66,59 @@ class App extends Component {
       });
   }
 
-  buttonFrance() {
-    fetch('https://restcountries.eu/rest/v2/name/france')
-
-      .then(res => res.json())
-      .then(json => {
-        console.log("fetch: ", fetch(''))
-        console.log("fetch - json: ", json)
-
-        this.setState({
-          name: json[0].name,
-          capital: json[0].capital,
-          flag: json[0].flag,
-          population: json[0].population,
-          region: json[0].region
-        })
-      });
-  }
-
-  buttonBrazil() {
-    fetch('https://restcountries.eu/rest/v2/name/brazil')
-
-      .then(res => res.json())
-      .then(json => {
-        console.log("fetch: ", fetch(''))
-        console.log("fetch - json: ", json)
-
-        this.setState({
-          name: json[0].name,
-          capital: json[0].capital,
-          flag: json[0].flag,
-          population: json[0].population,
-          region: json[0].region
-        })
-      });
-  }
-
-  buttonCroatia() {
-    fetch('https://restcountries.eu/rest/v2/name/croatia')
-
-      .then(res => res.json())
-      .then(json => {
-        console.log("fetch: ", fetch(''))
-        console.log("fetch - json: ", json)
-
-        this.setState({
-          name: json[0].name,
-          capital: json[0].capital,
-          flag: json[0].flag,
-          population: json[0].population,
-          region: json[0].region
-        })
-      });
-  }
+  /*   buttonFrance() {
+      fetch('https://restcountries.eu/rest/v2/name/france')
+  
+        .then(res => res.json())
+        .then(json => {
+          console.log("fetch: ", fetch(''))
+          console.log("fetch - json: ", json)
+  
+          this.setState({
+            name: json[0].name,
+            capital: json[0].capital,
+            flag: json[0].flag,
+            population: json[0].population,
+            region: json[0].region
+          })
+        });
+    }
+  
+    buttonBrazil() {
+      fetch('https://restcountries.eu/rest/v2/name/brazil')
+  
+        .then(res => res.json())
+        .then(json => {
+          console.log("fetch: ", fetch(''))
+          console.log("fetch - json: ", json)
+  
+          this.setState({
+            name: json[0].name,
+            capital: json[0].capital,
+            flag: json[0].flag,
+            population: json[0].population,
+            region: json[0].region
+          })
+        });
+    }
+  
+    buttonCroatia() {
+      fetch('https://restcountries.eu/rest/v2/name/croatia')
+  
+        .then(res => res.json())
+        .then(json => {
+          console.log("fetch: ", fetch(''))
+          console.log("fetch - json: ", json)
+  
+          this.setState({
+            name: json[0].name,
+            capital: json[0].capital,
+            flag: json[0].flag,
+            population: json[0].population,
+            region: json[0].region
+          })
+        });
+    } */
 
   updateInput(evt) {
     this.setState({
@@ -130,14 +130,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container-fluid">
-        <div className="row">
-          <div className="col-6 mx-50">
-            <label> Search your country : </label>
-            <input onChange={this.updateInput} type="text" className="form-control col-4"></input>
-            <button onClick={() => this.clickButton2(this.state.search)} type="button" className="btn btn-outline-success"> Search </button>
-          </div>
-        </div>
+      <div className="App container-fluid mt-6">
+
+        <label> Search your country : </label>
+        <input onChange={this.updateInput} type="text" className="form-control col-4"></input>
+        <button onClick={() => this.clickButton2(this.state.search)} type="button" className="btn btn-outline-success mt-2"> Search </button>
+
+
 
         {/*         <Button onClick={() => this.buttonFrance('france')} > France </Button>
         <Button onClick={() => this.buttonBrazil('brazil')} > Brazil </Button>
@@ -148,7 +147,9 @@ class App extends Component {
         <h3> Region : {this.state.region}</h3>
         <h3> Population : {this.state.population}</h3> */}
 
-        <Card info={this.state}></Card>
+        <div className="mt-4">
+          <Card info={this.state} ></Card>
+        </div>
       </div>
     );
   }

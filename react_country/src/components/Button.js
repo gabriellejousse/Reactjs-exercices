@@ -19,7 +19,7 @@ class Button extends React.Component {
         return (
             <div>
                 {/* appeler les props de l'enfant qu'on a écrit dans <Button> dans (App.js) */}
-                <button className="btn btn-outline-success" onClick={this.clickButton}> {this.props.children} </button>
+                <button className="btn btn-outline-success mt-4" onClick={this.clickButton}> {this.props.children} </button>
             </div>
         )
     }
