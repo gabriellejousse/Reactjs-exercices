@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import Discover from './components/Discover';
 import DiscoverBattle from './components/DiscoverBattle';
 import Popular from './components/Popular';
@@ -20,16 +20,16 @@ class App extends Component {
     return (
       <Router>
 
-        <nav>
-          <ul>
-            <li> <Link to="/"> This week </Link></li>
-            <li> <Link to="/battle"> This week battle </Link></li>
-            <li> <Link to="/popular/"> Popular </Link></li>
-            <li> <Link to="/popular-battle/"> Popular battle </Link></li>
-            <li> <Link to="/my-list/"> My list</Link></li>
+        <nav className="container-fluid">
+          <ul className="row justify-content-between list-unstyled mx-5 ">
+            <li> <strong> <Link to="/"> This week </Link> </strong> </li>
+            <li> <strong> <Link to="/battle"> This week battle </Link> </strong> </li>
+            <li> <strong> <Link to="/popular/"> Popular </Link> </strong> </li>
+            <li> <strong> <Link to="/popular-battle/"> Popular battle </Link> </strong> </li>
+            <li> <strong> <Link to="/my-list/"> My list</Link> </strong> </li>
           </ul>
         </nav>
-        <Card></Card>
+        
         <Switch>
           <Route exact path="/">
             <Discover></Discover>
