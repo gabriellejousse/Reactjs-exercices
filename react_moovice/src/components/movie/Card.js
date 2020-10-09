@@ -20,11 +20,12 @@ class Card extends React.Component {
     }
 
     render() {
+        console.log("propssss", this.props)
         return (
             <div className="container-fluid ">
-                <section className="col-5  text-left ">
+                <section className="col-5  text-left border border-warning mb-4 pt-4">
                     <img src={this.state.image} className="imgcss"></img>
-                    <h5 className="mt-2"> {this.props.title}</h5>
+                    <h5 className="mt-2 color-title"><strong> {this.props.title}</strong></h5>
                     <p className="mb-4"> {this.props.description} </p>
                 </section>
             </div>

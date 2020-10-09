@@ -27,6 +27,7 @@ class Popular extends React.Component {
 
                 console.log("this.state.movies : ", this.state.movies)
                 console.log("title: ", this.state.movies[0].original_title);
+                
 
 
 
@@ -55,7 +56,6 @@ class Popular extends React.Component {
 
 
     render() {
-        console.log("this.state.movies render: ", this.state.movies)
 
         return (
             <div>
