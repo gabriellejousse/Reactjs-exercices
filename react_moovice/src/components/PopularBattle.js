@@ -2,6 +2,7 @@ import React from 'react';
 import Card from './movie/Card';
 import { API_KEY } from '../service/network';
 import placeholder from '../img/placeholder.png'
+import MyList from './MyList';
 
 class PopularBattle extends React.Component {
 
@@ -60,6 +61,8 @@ class PopularBattle extends React.Component {
         this.setState({
             currentPage: this.state.currentPage + 1
         })
+
+        //return <MyList maListe={this.choseFilm(id)}></MyList>
     }
 
     render() {
@@ -71,9 +74,6 @@ class PopularBattle extends React.Component {
 
         /*         const firstIndex = secondIndex - 1;
                 const secondIndex = (currentPage * 2); */
-
-        /*         const movie1 = this.state.movies[(this.state.page - 1) * 2];
-           const movie2 = this.state.movies[(this.state.page - 1) * 2 + 1]; */
 
         const firstMovie = movies[(currentPage - 1) * 2];
         const secondMovie = movies[(currentPage - 1) * 2 + 1];
@@ -93,6 +93,7 @@ class PopularBattle extends React.Component {
                         <Card {...secondMovie}></Card>
                     </button>
                 </div>
+
             </div>
         )
 
