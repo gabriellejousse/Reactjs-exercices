@@ -1,64 +1,46 @@
 import React from 'react';
-import CompB from './CompB'
 
-class CompA extends React.Component {
+class Quizz extends React.Component {
+
 
     constructor() {
         super();
+        this.click = this.click.bind(this);
+
         this.state = {
-            name: 'coucou',
-            countries: []
+            list: []
         }
-        this.click = this.click.bind(this)
     }
-
-
-    click() {
+    componentDidMount() {
         this.setState({
-            name: 'salut'
+            list: [1, 2, 3, 4]
         })
     }
+    click() {
+        console.log('Je suis clické');
 
+        // obligé de ne pas faire directement un push dans la nouvelle variable,
+        // sinon ça indiquera seulement la length de la liste
+        //pareil pour les méthodes pop, shift...
+        let newlist = this.state.list
+        newlist.push(newlist.length + 1)
+        this.setState({
+            list: newlist
+        })
+    }
     render() {
         return (
             <div>
-                <h1>Je suis le composant A</h1>
-                <CompB title={this.state.name} countries={this.state.countries}></CompB>
-                <button onclick={this.click}></button>
+                {/* afficher dans une balise p tout les element de la list}*/}
+                {this.state.list.map((elem, index) => {
+                    return (<p key={index}> {elem} </p>)
+                })}
+
+                <button onClick={this.click}> Button </button>
             </div>
         )
     }
+
 }
 
-export default CompA;
-
-
-// ------------------------
-
-import React, { Component } from 'react';
-
-class CompB extends React.Component {
-
-    constructor() {
-        super();
-        this.state = {
-            name: 'nihao'
-        }
-        this.componentDidMount = this.componentDidMount.bind(this);
-    }
-
-    componentDidMount() {
-        console.log('Je suis une méthode de cycle de vie appellé au mount')
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>{this.props.title}</h1>
-                <p>{this.props.countries}</p>
-            </div>
-        )
-    }
-}
-
-export default CompB;
+export default Quizz

@@ -47,10 +47,10 @@ class PopularBattle extends React.Component {
     choseFilm(id) {
         //console.log("choseFilm", id)
 
-        if(JSON.parse(localStorage.getItem('my-list'))){
+/*         if(JSON.parse(localStorage.getItem('my-list'))){
             myList = JSON.parse(localStorage.getItem('my-list'))
         } 
-
+ */
         let myList =JSON.parse(localStorage.getItem('my-list')) ? JSON.parse(localStorage.getItem('my-list')) : []
  
         myList.push(id)
@@ -93,6 +93,7 @@ class PopularBattle extends React.Component {
                         <Card {...secondMovie}></Card>
                     </button>
                 </div>
+                
 
             </div>
         )
