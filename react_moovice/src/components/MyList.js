@@ -1,8 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { API_KEY } from '../service/network';
 import Card from './movie/Card';
 
 
+class MyList extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            movies: [],
+            movieIds: JSON.parse(localStorage.getItem('my-list'))
+        }
+    }
+
+    componentDidMount(){
+        //on exécute la fonction getFrom... pour qu'elle puisse afficher notamment les console.log
+        this.getFromLocalStorage();
+    }
+
+    getFromLocalStorage(){
+        let myList =JSON.parse(localStorage.getItem('my-list')) ? JSON.parse(localStorage.getItem('my-list')) : []  
+        console.log("list dans localStorage", myList);
+
+        return myList();
+    }
+
+    render() {
+
+        return (
+            <div>
+                <h1>{this.state.movieIds}</h1>
+                <h2></h2>
+            </div>
+        )
+    }
+}
+export default MyList;
+
+
+
+/* 
 class MyList extends React.Component {
 
     constructor() {
@@ -41,6 +78,8 @@ class MyList extends React.Component {
         console.log("this.state.movies", this.state.movies)
     }
 
+
+
     render() {
 
         return (
@@ -51,4 +90,4 @@ class MyList extends React.Component {
         )
     }
 }
-export default MyList;
+export default MyList; */

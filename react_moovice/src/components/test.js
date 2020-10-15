@@ -44,3 +44,4 @@ class Quizz extends React.Component {
 }
 
 export default Quizz
+

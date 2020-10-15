@@ -49,14 +49,14 @@ class PopularBattle extends React.Component {
 
 /*         if(JSON.parse(localStorage.getItem('my-list'))){
             myList = JSON.parse(localStorage.getItem('my-list'))
-        } 
- */
+        }  
+
         let myList =JSON.parse(localStorage.getItem('my-list')) ? JSON.parse(localStorage.getItem('my-list')) : []
  
         myList.push(id)
         localStorage.setItem('my-list', JSON.stringify(myList))
         
-        console.log("list dans localStorage", myList);
+        console.log("list dans localStorage", myList); */
 
         this.setState({
             currentPage: this.state.currentPage + 1
