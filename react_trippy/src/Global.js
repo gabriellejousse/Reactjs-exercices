@@ -20,5 +20,6 @@ let Global = {
         caption: 200,
         header: 700
     }
-
 }
+
+export default Global;

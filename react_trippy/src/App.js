@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import HomeContainer  from './containers/HomeContainer';
+import Api from './utils/Api';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,6 +19,7 @@ class App extends Component {
             <Switch>
               <Route path="/">
                 <HomeContainer />
+                <Api></Api>
               </Route>
             </Switch>
           </div>
